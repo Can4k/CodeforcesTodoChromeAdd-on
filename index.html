@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <div id="txt">
+        If you have any problems using the add-on, write to my <a target="_blank" href="https://t.me/Can4k">telegram</a>.
+    </div>
+    <div class="wrapper">
+        <h1>CF<b style="color: rgb(0, 90, 126);"> TODO</b></h1>
+        <div class="buttons">
+            <button style="display: none;" id="add_current">+ Task (this page)</button>
+            <button id="add_some">+ Task by url</button>
+        </div>
+        <input placeholder="URL: (https://)codeforces.com/?/?/?/?" id="add_some_url">
+        <hr/>
+        <div id="wrapper-overflow">
+            <div id="task_container"></div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>
+
+<style>
+    button {
+        background: none;
+        border: 1px solid gray;
+        padding: 3px;
+        border-radius: 3px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .wrapper {
+        width: 300px;
+        height: 200px;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    input {
+        margin-top: 8px;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 0;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+        outline: none;
+    }
+
+    #task_container {
+        padding: 10px;
+        padding-top: 0;
+    }
+
+    .template {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-start;
+        margin-bottom: 3px;
+    }
+
+    .template a {
+        margin-left: 5px;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    .close {
+        font-size: 9px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: darkgreen;
+        color: white;
+        justify-self: flex-end;
+        margin-left: auto;
+    }
+
+    hr {
+        color: black;
+        size: 2px;
+        width: 100%;
+    }
+
+    #wrapper-overflow {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    #wrapper-overflow::-webkit-scrollbar {
+        width: 10px;
+        /* width of the entire scrollbar */
+    }
+
+    #wrapper-overflow::-webkit-scrollbar-track {
+        background: white;
+        /* color of the tracking area */
+    }
+
+    #wrapper-overflow::-webkit-scrollbar-thumb {
+        background-color: black;
+        /* color of the scroll thumb */
+        border-radius: 5px;
+        /* roundness of the scroll thumb */
+        border: 4px solid white;
+        /* creates padding around scroll thumb */
+    }
+
+    @keyframes open {
+        from {
+            height: 0;
+            padding: 0;
+            border: none;
+            font-size: 0;
+        }
+
+        to {
+            border: 1px solid black;
+            height: 20px;
+            padding: 2px;
+            font-size: 12px;
+        }
+    }
+
+    @keyframes close {
+        from {
+            height: 20px;
+            padding: 2px;
+            font-size: 12px;
+            border: 1px solid black;
+        }
+
+        to {
+            height: 0;
+            padding: 0;
+            border: none;
+            font-size: 0;
+        }
+    }
+
+    #txt {
+        font-size: 10px;
+        text-align: center;
+    }
+</style>
